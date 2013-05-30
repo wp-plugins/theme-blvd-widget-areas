@@ -3,7 +3,7 @@
 Plugin Name: Theme Blvd Widget Areas
 Plugin URI: 
 Description: This plugin works in conjuction with the Theme Blvd framework and its core addons to allow you to create custom widget areas and apply them in various ways.
-Version: 1.1.1
+Version: 1.1.2
 Author: Jason Bobich
 Author URI: http://jasonbobich.com
 License: GPL2
@@ -26,7 +26,7 @@ License: GPL2
 
 */
 
-define( 'TB_SIDEBARS_PLUGIN_VERSION', '1.1.1' );
+define( 'TB_SIDEBARS_PLUGIN_VERSION', '1.1.2' );
 define( 'TB_SIDEBARS_PLUGIN_DIR', dirname( __FILE__ ) ); 
 define( 'TB_SIDEBARS_PLUGIN_URI', plugins_url( '' , __FILE__ ) );
 
@@ -148,7 +148,7 @@ function themeblvd_sidebars_warning_2() {
  */
 
 function themeblvd_sidebars_register_post_type(){
-	$args = array(
+	$args = apply_filters( 'themeblvd_sidebars_post_type_args', array(
 		'labels' 			=> array( 'name' => 'Widget Areas', 'singular_name' => 'Widget Area' ),
 		'public'			=> false,
 		//'show_ui' 		=> true,	// Can uncomment for debugging
@@ -158,7 +158,7 @@ function themeblvd_sidebars_register_post_type(){
 		'rewrite' 			=> false,
 		'supports' 			=> array( 'title', 'custom-fields' ), 
 		'can_export'		=> true
-	);
+	));
 	register_post_type( 'tb_sidebar', $args );
 }
 
@@ -213,7 +213,7 @@ function themeblvd_register_custom_sidebars() {
 function themeblvd_get_sidebar_id( $location_id, $custom_sidebars, $sidebar_overrides ) {
 	
 	// Overrides come first
-	if( ! empty( $sidebar_overrides ) ) {
+	if( ! empty( $sidebar_overrides ) && is_array( $sidebar_overrides ) ) {
 		foreach( $sidebar_overrides as $key => $value ){
 			if( $key == $location_id && $value != 'default' ){
 				return $value;
