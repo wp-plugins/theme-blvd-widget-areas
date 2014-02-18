@@ -14,7 +14,6 @@ class Theme_Blvd_Sidebar_Manager {
 		// Add sidebar manager admin page
 		add_action( 'admin_menu', array( $this, 'add_page' ) );
 		add_action( 'admin_init', array( $this, 'hijack_submenu' ) );
-		add_action( 'widgets_admin_page', array( $this, 'widgets_page' ) );
 
 		// Filter on javascript locals specifically for Widget Areas Manager
 		// onto Theme Blvd framework locals.
@@ -167,20 +166,6 @@ class Theme_Blvd_Sidebar_Manager {
 	}
 
 	/**
-	 * Message for Widgets page.
-	 *
-	 * @since 1.0.0
-	 */
-	public function widgets_page() {
-		// Kind of a sloppy w/all the yucky inline styles, but otherwise,
-		// we'd have to enqueue an entire stylesheet just for the widgets
-		// page of the admin panel.
-		echo '<div style="width:300px;float:right;position:relative;z-index:1000"><p class="description" style="padding-left:5px">';
-		printf( __( 'In the %s, you can create and manage widget areas for specific pages of your website to override the default locations you see below.', 'themeblvd_sidebars' ), '<a href="themes.php?page=themeblvd_widget_areas">'.__( 'Widget Area Manager', 'themeblvd_sidebars' ).'</a>' );
-		echo '</p></div>';
-	}
-
-	/**
 	 * Builds out the full admin page.
 	 *
 	 * @since 1.0.0
@@ -272,6 +257,7 @@ class Theme_Blvd_Sidebar_Manager {
 						<div class="ajax-overlay"></div>
 						<div class="icon-holder">
 							<span class="tb-loader ajax-loading"></span>
+							<span class="tb-sidebar-override-icon"></span>
 							<?php screen_icon( 'themes' ); ?>
 						</div>
 						<span class="note"><?php _e('Select any custom sidebars you\'d like applied to this page.', 'themeblvd_sidebars'); ?></span>
@@ -451,6 +437,7 @@ class Theme_Blvd_Sidebar_Manager {
 	 */
 	public function add_sidebar_mini() {
 		?>
+		<h3><?php _e( 'Add New Sidebar', 'themeblvd_sidebars' ); ?></h3>
 		<div class="section">
 			<div class="add-sidebar-items">
 				<?php $nonce = wp_create_nonce( 'themeblvd_new_sidebar' ); ?>

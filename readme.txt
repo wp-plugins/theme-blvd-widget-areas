@@ -2,7 +2,7 @@
 Author URI: http://www.themeblvd.com
 Contributors: themeblvd
 Tags: custom sidebars, sidebar, sidebars, widget, widgets, widget areas, unlimited sidebars, Theme Blvd, themeblvd, Jason Bobich
-Stable Tag: 1.1.5
+Stable Tag: 1.2.0
 
 When using a Theme Blvd theme, this plugin extends the framework's widget area system.
 
@@ -33,6 +33,11 @@ Custom widget areas have two attributes to understand when being setup.
 2. Add a new custom widget areas and edit assignments.
 
 == Changelog ==
+
+= 1.2.0 =
+
+* Admin style updates for WordPress 3.8 and MP6 (requires Theme Blvd framework v2.4+).
+* Fixed bug with not being able to use `&&` operator in custom conditionals.
 
 = 1.1.5 =
 
