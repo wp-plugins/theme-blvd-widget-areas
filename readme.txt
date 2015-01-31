@@ -2,7 +2,7 @@
 Author URI: http://www.themeblvd.com
 Contributors: themeblvd
 Tags: custom sidebars, sidebar, sidebars, widget, widgets, widget areas, unlimited sidebars, Theme Blvd, themeblvd, Jason Bobich
-Stable Tag: 1.2.3
+Stable Tag: 1.2.4
 
 When using a Theme Blvd theme, this plugin extends the framework's widget area system.
 
@@ -34,6 +34,14 @@ Custom widget areas have two attributes to understand when being setup.
 3. Quickly override the sidebar when editing a page.
 
 == Changelog ==
+
+= 1.2.4 =
+
+* Added [WooCommerce](https://wordpress.org/plugins/woocommerce/) support (for framework 2.5+ themes).
+* Added [bbPress](https://wordpress.org/plugins/bbpress/) support (for framework 2.5+ themes).
+* Added [Theme Blvd Portfolios](https://wordpress.org/plugins/portfolios/) support (for framework 2.5+ themes).
+
+*Note: For you Jump Start 2.0 beta testers, these changes will only work with Jump Start 2.0-beta3+*
 
 = 1.2.3 =
 
